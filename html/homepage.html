@@ -1,31 +1,73 @@
-<link href="{{ url_for('static', filename='homepage.css') }}" rel="stylesheet" type="text/css" >
+<!DOCTYPE html>
+<html lang="en">
 
-<main>
-   
-    <div class="lp">
-      <!--- START: NAV --->
-      <nav class="lp__nav">
-        <img src="https://cdn.pixabay.com/photo/2016/12/19/03/14/computer-1917230__480.png" class="lp__nav__logo">
-        <p class="lp__nav__text"><h1>Renessmey</h1> <br> </p>
-     
-       
-      </nav>
-      <!--- END: NAV --->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astro Boy Smart AC Controller</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+  class="bg-gradient-to-b from-blue-900 to-indigo-900 min-h-screen flex flex-col items-center justify-center text-white font-sans">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fanButtons = document.querySelectorAll(".fan-btn");
   
-      <section class="lp__body">
-      <!--- START: TEXT --->
-      <div class="lp__text">
-        <h1 class="lp__text__title"><span class="lp__text__title-first">I'm</span>
-          Astro</h1>
-        <p class="lp__text__subtext">Your Smart AC Controller.</p>
-      </div>
-      <!--- END: TEXT --->
+      fanButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          fanButtons.forEach(btn => {
+            btn.classList.remove("bg-blue-600", "ring", "ring-white");
+            btn.classList.add("bg-gray-700");
+          });
   
-      <!--- START: IMG --->
-      <div class="lp__mainImg">
-        <img src="https://images.mubicdn.net/images/film/3510/cache-10180-1481127362/image-w1280.jpg" class="lp__mainImg__img">
-      </div>
-      <!--- END: IMG --->
-      </section>
+          button.classList.remove("bg-gray-700");
+          button.classList.add("bg-blue-600", "ring", "ring-white");
+        });
+      });
+    });
+  </script>
+  
+  <!-- Header -->
+  <div class="text-center mb-6">
+ 
+      <img src="https://img.freepik.com/free-vector/cute-astronaut-super-flying-illustration_138676-3277.jpg?semt=ais_hybrid&w=740"
+     alt="Astro Boy"
+     class="mx-auto w-24 mb-4 rounded-full ring-2 ring-white shadow-lg" />
+    <h1 class="text-3xl font-bold tracking-wide">Astro Smart AC Controller</h1>
+    <p class="text-sm text-blue-300">Reimagine Air Control—Smart, Sleek, Seamless. </p>
+  </div>
+
+
+  <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg w-80">
+    <div class="flex flex-col items-center mb-6">
+      <p class="text-xl mb-2">Current Temperature</p>
+      <div class="text-5xl font-bold text-cyan-300">22°C</div>
     </div>
-  </main>
+
+    <div class="grid grid-cols-2 gap-4 text-center">
+      <button class="bg-blue-600 hover:bg-blue-500 p-3 rounded-xl transition">Power</button>
+      <button class="bg-purple-600 hover:bg-purple-500 p-3 rounded-xl transition">Mode</button>
+      <button class="bg-red-600 hover:bg-red-500 p-3 rounded-xl transition">Temp +</button>
+      <button class="bg-green-600 hover:bg-green-500 p-3 rounded-xl transition">Temp -</button>
+    </div>
+
+
+
+    <div class="mt-6">
+      <label class="block mb-2 text-sm">Fan Speed</label>
+      <div id="fan-speed-buttons" class="grid grid-cols-4 gap-2 text-center">
+        <button class="fan-btn py-2 px-3 rounded-lg text-sm bg-gray-700 text-white">Low</button>
+        <button class="fan-btn py-2 px-3 rounded-lg text-sm bg-gray-700 text-white">Med</button>
+        <button class="fan-btn py-2 px-3 rounded-lg text-sm bg-gray-700 text-white">High</button>
+        <button class="fan-btn py-2 px-3 rounded-lg text-sm bg-gray-700 text-white">Auto</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <p class="mt-8 text-xs text-blue-400">AstroIR</p>
+</body>
+
+</html>
